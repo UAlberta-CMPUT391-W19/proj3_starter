@@ -20,7 +20,7 @@ if len(lines) == 0:
 else:
 
 	if "error" in " ".join(lines).lower():
-		print "====> SUCCESS 1: output is formatted correctly"
+		print "====> SUCCESS: output is formatted correctly"
 		exit(0)
 
 	if len(lines) == 1:
@@ -28,11 +28,11 @@ else:
 		try:
 			t = lines[0].split('\t')
 			areaId, distance = t[0], float(t[1])	
-			print "====> SUCCESS 2: output is formatted correctly"
+			print "====> SUCCESS: output is formatted correctly"
 			exit(0)
 		except Exception as e:
-			print "====> ERROR 1: output does not meet specifications"
+			print "====> ERROR: output does not meet specifications"
 			exit(1)
 
-	print "====> ERROR 2: output does not meet specifications"
+	print "====> ERROR: output does not meet specifications"
 	exit(1)
