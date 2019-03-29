@@ -10,7 +10,7 @@ print "testing Q1"
 x = 20
 y = 10
 
-output=subprocess.check_output(["./bin/solution.out", "./test/testq1.db", str(x), str(y)])
+output=subprocess.check_output(["./bin/solution.out", "./test/part2_rtree.db", str(x), str(y)])
 lines = output.strip().split('\n')
 
 if len(lines) == 0:
