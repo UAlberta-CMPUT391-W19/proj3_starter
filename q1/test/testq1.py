@@ -17,18 +17,22 @@ if len(lines) == 0:
 	print "====> ERROR: there is no output"
 	exit(1)
 
-if len(lines) == 1:
-	try:
-		t = lines[0].split('\t')
-		areaId, distance = t[0], float(t[1])	
-	except:
-		print "====> ERROR: output does not meet specifications"
-		exit(1)
-	print "====> SUCCESS: output is formatted correctly"
 else:
-	if "ERROR" in lines[0]:
+
+	if "error" in " ".join(lines).lower():
 		print "====> SUCCESS: output is formatted correctly"
 		exit(0)
-	else:
-		print "====> ERROR: output does not meet specifications"
-		exit(1)
+
+	if len(lines) == 1:
+
+		try:
+			t = lines[0].split('\t')
+			areaId, distance = t[0], float(t[1])	
+			print "====> SUCCESS: output is formatted correctly"
+			exit(0)
+		except:
+			print "====> ERROR: output does not meet specifications"
+			exit(1)
+
+	print "====> ERROR: output does not meet specifications"
+	exit(1)
